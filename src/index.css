@@ -1,13 +1,158 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: skyblue; /* Soft pink background */
+  color: #444;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3rem 0.5rem;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Oval Pokémon card styles */
+.thumb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  margin: 2px;
+  border-radius: 10px; /* Oval shape */
+  background-color: #9b5cee;
+  min-width: 160px;
+  min-height: 220px;
+  text-align: center;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.thumb-container:hover {
+  transform: scale(1.5);
+}
+
+.thumb-container .number {
+  border-radius: 1rem;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.thumb-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px; /* Image rounded */
+  background-color: white;
+  padding: 2px;
+}
+
+.thumb-container small {
+  text-transform: capitalize;
+}
+
+h3 {
+  margin-bottom: 0.2rem;
+  color: #4eaeee;
+}
+
+/* Popup modal styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centering the modal vertically and horizontally */
+  z-index: 1000;
+}
+
+.modal-content { 
+  display: flex; /* Enables Flexbox layout for the content */
+  flex-direction: column; /* Stacks items vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%; /* Set width to 90% for better responsiveness */
+  max-width: 300px; /* Limits the modal's maximum width */
+  max-height: 700px; /* Reduced height */
+  box-shadow: 0 4px 12px rgb(255, 251, 0); /* Yellow shadow effect */
+  animation: fadeIn 0.3s ease-in-out;
+  overflow-y: auto; /* Allows scrolling if content exceeds max-height */
+}
+.pokemon-image {
+  width: 150px; /* Adjust the width to make the image smaller */
+  height: auto; /* Keep aspect ratio intact */
+  margin-bottom: 1rem; /* Optional: adds space below the image */
+}
+
+
+/* .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ff66cc;
+  cursor: pointer;
+} */
+
+.abilities,
+.base-stat {
+  margin-top: 1rem;
+}
+
+.abilities h2, .base-stat h3 {
+  color: #000000;
+}
+
+.search-bar {
+  height: 40px; width: 370px; border-radius: 0;
+  font-size: 20px;
+  border: double;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  outline: none;
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-style:bold;
+}
+
+/* Loading spinner */
+.loading {
+  text-align: center;
+  color: #ff66cc;
+  font-size: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
